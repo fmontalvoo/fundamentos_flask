@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -30,6 +30,13 @@ def languages():
     data = {'title': 'Lengaujes', 'languages': [
         'Python', 'Java', 'Dart', 'JavaScript']}
     return render_template('languages.html', data=data)
+
+# /data?name=Frank&age=25
+@app.route('/data')
+def data():
+    name = request.args.get('name')
+    age = request.args.get('age')
+    return 'Nombre: {name} y Edad: {age}'.format(name=name, age=age)
 
 
 if __name__ == '__main__':
