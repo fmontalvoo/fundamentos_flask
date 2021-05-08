@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
     <title>{{data.title}}</title>
 </head>
 
 <body>
+    <h1>{{data.header}}</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium corporis dolorem quis consectetur, debitis
+        commodi accusamus ex minima laborum molestias provident eveniet dolore officiis, nulla ipsum ut perferendis
+        voluptatem unde?</p>
 
+    <script src="{{ url_for('static',filename='js/index.js') }}"></script>
 </body>
 
 </html>
