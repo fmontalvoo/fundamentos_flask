@@ -3,8 +3,20 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+@app.before_request
+def before_request():
+    print('Antes de la peticion')
+
+
+@app.after_request
+def after_request(response):
+    print('Despues de la peticion')
+    return response
+
+
 @app.route('/')
 def index():
+    print('Realizando la peticion')
     data = {'title': 'Inicio', 'header': 'Bienvenido(a)'}
     return render_template('index.html', data=data)
 
@@ -30,6 +42,7 @@ def languages():
     data = {'title': 'Lengaujes', 'languages': [
         'Python', 'Java', 'Dart', 'JavaScript']}
     return render_template('languages.html', data=data)
+
 
 # /data?name=Frank&age=25
 @app.route('/data')
