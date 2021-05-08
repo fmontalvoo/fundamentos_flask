@@ -1,11 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# @app.route('/')
+
+@app.route('/')
 def index():
-    return "Hola Mundo"
+    # return render_template('index.html', title='Inicio')
+    data = {'title': 'Inicio'}
+    return render_template('index.html', data=data)
+
 
 if __name__ == '__main__':
-    app.add_url_rule('/',view_func=index)
     app.run(debug=True, port=3000)
