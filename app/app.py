@@ -25,5 +25,12 @@ def sum(a, b):
     return '{a} + {b} = {c}'.format(a=a, b=b, c=a+b)
 
 
+@app.route('/languages')
+def languages():
+    data = {'title': 'Lengaujes', 'languages': [
+        'Python', 'Java', 'Dart', 'JavaScript']}
+    return render_template('languages.html', data=data)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
