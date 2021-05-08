@@ -15,5 +15,15 @@ def contact():
     return render_template('contact.html', data=data)
 
 
+@app.route('/greetings/<name>')
+def greetings(name):
+    return 'Hola {}'.format(name)
+
+
+@app.route('/sum/<int:a>/<int:b>')
+def sum(a, b):
+    return '{a} + {b} = {c}'.format(a=a, b=b, c=a+b)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
